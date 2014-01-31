@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'protected_attributes'
+gem 'role_model'
+gem 'rails_admin'
+gem 'devise'
+gem 'cancan'
+
 gem 'mysql', '~> 2.9.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

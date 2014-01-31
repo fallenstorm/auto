@@ -8,6 +8,25 @@
 </head>
 <body>
 
+
+<% if user_signed_in? %>
+    <%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
+<% end %>
+
+<%= params %>
+
+<% unless params[:admin] %>
+    <% if user_signed_in? %>
+        <%= link_to "Админка", rails_admin_path, :method => :get %>
+    <% end %>
+<% end %>
+
+<% if can? :access, :rails_admin %>
+    GOOD
+<% else %>
+    <%= current_user.has_role :admin  %>
+<% end %>
+
 <%= yield %>
 
 </body>
