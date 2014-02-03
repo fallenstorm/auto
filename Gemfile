@@ -5,6 +5,8 @@ gem 'role_model'
 gem 'rails_admin'
 gem 'devise'
 gem 'cancan'
+gem 'rails-i18n'
+gem 'devise-i18n-views'
 
 gem 'mysql', '~> 2.9.1'
 
