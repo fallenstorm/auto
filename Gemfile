@@ -7,8 +7,7 @@ gem 'devise'
 gem 'cancan'
 gem 'rails-i18n'
 gem 'devise-i18n-views'
-
-gem 'mysql', '~> 2.9.1'
+gem 'mysql2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
