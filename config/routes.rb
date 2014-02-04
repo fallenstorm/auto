@@ -1,5 +1,11 @@
 Auto::Application.routes.draw do
   
+  resources :orders
+
+  resources :cars
+
+  resources :clients
+
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   

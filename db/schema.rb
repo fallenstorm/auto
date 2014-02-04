@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204074212) do
+ActiveRecord::Schema.define(version: 20140204120841) do
+
+  create_table "cars", force: true do |t|
+    t.string   "name"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "color"
+    t.integer  "year"
+    t.decimal  "engine_volume", precision: 4, scale: 2
+    t.string   "vin"
+    t.string   "country"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.date     "birthday"
+    t.string   "address"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dilers", force: true do |t|
     t.string   "name"
@@ -24,6 +48,26 @@ ActiveRecord::Schema.define(version: 20140204074212) do
   create_table "dilers_users", id: false, force: true do |t|
     t.integer "diler_id"
     t.integer "user_id"
+  end
+
+  create_table "engineers", force: true do |t|
+    t.string   "name"
+    t.date     "birthday"
+    t.string   "address"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "name"
+    t.datetime "record_time"
+    t.datetime "arrival_time"
+    t.integer  "car_id"
+    t.integer  "diler_id"
+    t.integer  "engineer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rails_admin_histories", force: true do |t|
