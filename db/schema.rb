@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130144617) do
+ActiveRecord::Schema.define(version: 20140204074212) do
+
+  create_table "dilers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dilers_users", id: false, force: true do |t|
+    t.integer "diler_id"
+    t.integer "user_id"
+  end
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"

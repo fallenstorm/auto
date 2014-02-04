@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   include RoleModel
   #roles_attribute :roles_mask
   roles :admin, :manager, :author
+  
+  has_and_belongs_to_many :dilers
 end
