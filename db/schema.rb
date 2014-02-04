@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204120841) do
+ActiveRecord::Schema.define(version: 20140204130651) do
 
   create_table "cars", force: true do |t|
-    t.string   "name"
-    t.string   "brand"
+    t.string   "name",                                  null: false
+    t.string   "brand",                                 null: false
     t.string   "model"
     t.string   "color"
     t.integer  "year"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20140204120841) do
     t.datetime "updated_at"
   end
 
+  add_index "cars", ["name"], name: "index_cars_on_name", unique: true, using: :btree
+
   create_table "clients", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "phone"
     t.date     "birthday"
     t.string   "address"
@@ -37,13 +39,18 @@ ActiveRecord::Schema.define(version: 20140204120841) do
     t.datetime "updated_at"
   end
 
+  add_index "clients", ["name"], name: "index_clients_on_name", unique: true, using: :btree
+  add_index "clients", ["phone"], name: "index_clients_on_phone", unique: true, using: :btree
+
   create_table "dilers", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "address"
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "dilers", ["name"], name: "index_dilers_on_name", unique: true, using: :btree
 
   create_table "dilers_users", id: false, force: true do |t|
     t.integer "diler_id"
@@ -51,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140204120841) do
   end
 
   create_table "engineers", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.date     "birthday"
     t.string   "address"
     t.string   "phone"
@@ -59,16 +66,21 @@ ActiveRecord::Schema.define(version: 20140204120841) do
     t.datetime "updated_at"
   end
 
+  add_index "engineers", ["name"], name: "index_engineers_on_name", unique: true, using: :btree
+  add_index "engineers", ["phone"], name: "index_engineers_on_phone", unique: true, using: :btree
+
   create_table "orders", force: true do |t|
-    t.string   "name"
-    t.datetime "record_time"
+    t.string   "name",         null: false
+    t.datetime "record_time",  null: false
     t.datetime "arrival_time"
-    t.integer  "car_id"
-    t.integer  "diler_id"
-    t.integer  "engineer_id"
+    t.integer  "car_id",       null: false
+    t.integer  "diler_id",     null: false
+    t.integer  "engineer_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "orders", ["name"], name: "index_orders_on_name", unique: true, using: :btree
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"

@@ -85,6 +85,28 @@ RailsAdmin.config do |config|
 
   #   # Cross-section configuration:
 
+  config.model 'Car' do
+    list do
+      field :name do
+        label "Гос. номер"
+      end
+      include_all_fields
+    end
+    
+    show do
+      field :name do
+        label "Гос. номер"
+      end
+      include_all_fields
+    end
+
+    edit do
+      field :name do
+        label "Гос. Номер"
+      end
+      include_all_fields
+    end
+  end
   #     # object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
   #     # label 'My model'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
   #     # label_plural 'My models'      # Same, plural
