@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     #redirect_to main_app.root_path, :alert => exception.message
     render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
   end
+  rescue_from ActiveRecord::StatementInvalid do |exception|
+    redirect_to request.original_url, :alert => exception.message
+    #render :file => "#{Rails.root}/public/500.html", :status => 500, :layout => false
+  end
 end

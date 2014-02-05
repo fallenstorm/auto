@@ -8,6 +8,7 @@ gem 'cancan'
 gem 'rails-i18n'
 gem 'devise-i18n-views'
 gem 'mysql2'
+gem 'nilify_blanks'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
